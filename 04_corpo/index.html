@@ -1,0 +1,25 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>POST</title>
+    <style>
+      body {
+        text-align: center;
+        max-width: 980px;
+        margin: 0 auto;
+        padding-top: 3em;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="/api" target="_blank">
+      <input id="nome" name="nome" type="text" placeholder="nome" required="" autofocus=""><br>
+      <textarea id="dados" name="dados" placeholder="descrição" required=""></textarea></br>
+      <button type="submit">enviar</button>
+    </form>
+  </body>
+</html>
+<!--
+  http-server -p 8080 -P http://localhost:3000
+-->
