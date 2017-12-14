@@ -1,0 +1,42 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>X-headers</title>
+    <style>
+      body {
+        text-align: center;
+        max-width: 980px;
+        margin: 0 auto;
+        padding-top: 3em;
+      }
+    </style>
+  </head>
+  <body>
+    <form target="_blank">
+      <input id="chave" type="text" placeholder="chave" required="" autofocus="">
+      <input id="valor" type="text" placeholder="valor" required="" autofocus=""><br>
+      <button id="enviar" type="button">Enviar</button>
+    </form>
+    <script defer>
+      console.log("document.cookie = \"meus cookies\"")
+      document.getElementById('enviar').onclick = () => {
+        var ajax = new XMLHttpRequest()
+        ajax.open('GET', 'http://127.0.0.1:8080/api')
+
+        var chave = document.getElementById('chave').value
+        var valor = document.getElementById('valor').value
+        ajax.setRequestHeader(chave, valor)
+
+        ajax.onload = e => {
+          const obj = JSON.parse(e.target.response)
+        	console.dir(obj)
+        }
+        ajax.send()
+      }
+    </script>
+  </body>
+</html>
+<!--
+  http-server -p 8080 -P http://localhost:3000
+-->
